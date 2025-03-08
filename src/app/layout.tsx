@@ -32,12 +32,12 @@ export default function RootLayout({
         <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
           <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 10 }}>
             <Ribbons
-              baseThickness={12}
+              baseThickness={15}
               colors={["#3bba9c"]}
-              speedMultiplier={0.5}
+              speedMultiplier={0.52}
               maxAge={500}
               enableFade={true}
-              enableShaderEffect={true}
+              enableShaderEffect={false}
             />
           </div>
           <div style={{ position: "relative", zIndex: 1 }}>
