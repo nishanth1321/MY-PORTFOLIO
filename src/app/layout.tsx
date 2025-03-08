@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Ribbons from "@/compoents/curser-animation/ribbion-curser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,23 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ margin: 0, padding: 0 }}
       >
-        {children}
+        <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+          <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 10 }}>
+            <Ribbons
+              baseThickness={12}
+              colors={["#3bba9c"]}
+              speedMultiplier={0.5}
+              maxAge={500}
+              enableFade={true}
+              enableShaderEffect={true}
+            />
+          </div>
+          <div style={{ position: "relative", zIndex: 1 }}>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
