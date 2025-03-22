@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import Ribbons from "@/compoents/curser-animation/ribbion-curser";
+import Footer from "@/compoents/nav/footer";
+import { Header } from "@/compoents/nav/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Quicksand({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,23 +20,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={inter.className}
         style={{ margin: 0, padding: 0 }}
       >
         <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
           <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 10 }}>
             <Ribbons
-              baseThickness={15}
+              baseThickness={40}
               colors={["#3bba9c"]}
               speedMultiplier={0.52}
-              maxAge={500}
+              maxAge={540}
               enableFade={true}
               enableShaderEffect={false}
             />
           </div>
+          <Header />
           <div style={{ position: "relative", zIndex: 1 }}>
             {children}
           </div>
+          <Footer />
         </div>
       </body>
     </html>

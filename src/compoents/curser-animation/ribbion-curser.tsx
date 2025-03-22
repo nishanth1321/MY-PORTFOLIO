@@ -26,9 +26,9 @@ const Ribbons: React.FC<RibbonsProps> = ({
   offsetFactor = 0.05,
   maxAge = 500,
   pointCount = 50,
-  speedMultiplier = 0.6,
-  enableFade = false,
-  enableShaderEffect = false,
+  speedMultiplier = 0.7,
+  enableFade = true,
+  enableShaderEffect = true,
   effectAmplitude = 2,
   backgroundColor = [0, 0, 0, 0],
 }) => {
@@ -41,7 +41,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
     // Create a renderer with an alpha-enabled context.
     const renderer = new Renderer({ dpr: window.devicePixelRatio || 2, alpha: true });
     const gl = renderer.gl;
-    if (Array.isArray(backgroundColor) && backgroundColor.length === 4) {
+    if (Array.isArray(backgroundColor) && backgroundColor.length === 10) {
       gl.clearColor(
         backgroundColor[0],
         backgroundColor[1],
